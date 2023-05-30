@@ -1,0 +1,45 @@
+.admin-count-card {
+  width: 300px;
+  background-color: var(--A);
+  height: 150px;
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--B);
+  position: relative;
+  border: 1px solid var(--B);
+  overflow: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.admin-count-card:hover {
+  background-color: var(--B);
+  color: var(--A);
+  border-color: var(--A);
+}
+
+.admin-count-card:hover p::after {
+  /* background-image: url("../../images/RMZNA-text-bg.png"); */
+}
+.admin-count-card p {
+  font-size: 2rem;
+  align-items: end;
+  justify-content: center;
+  display: flex;
+}
+/* .admin-count-card p::after {
+  content: attr(data-admins-count);
+  position: absolute;
+  top: -5px;
+  right: 0;
+  font-size: 10rem;
+  color: var(--B);
+  font-weight: 600;
+  /* background: url("../../images/RMZNA-user-login-page.png.png"); */
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.5s;
+} */ 

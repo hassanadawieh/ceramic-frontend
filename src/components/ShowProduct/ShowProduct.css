@@ -1,0 +1,132 @@
+.main-showProduct {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.705) ;
+    color: white;
+    position: absolute;
+    position: fixed;
+}
+
+
+.showProduct-container {
+  width: 1000px;
+  min-height: 600px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+  border: 2px solid var(--E);
+  border-radius: var(--Radius);
+  box-shadow: -8px 10px 14px 9px black;
+}
+
+.image {
+  width: 50%;
+  z-index: 1;
+}
+
+.info-product {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  backdrop-filter: blur(1px);
+  margin-bottom: 20px;
+}
+.info-product div {
+  font-size: 25px;
+  min-width: 10%;
+  min-height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin-left: 30px;
+}
+
+.title {
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-product {
+  position: relative;
+  left: -40%;
+  transition: left 1s ease-in-out;
+}
+
+.info-product.show {
+  left: 0;
+}
+
+.showProduct-price {
+  position: absolute;
+  top: 0;
+  left: 51%;
+  font-weight: 600;
+  font-size: 67px;
+  z-index: 1;
+}
+
+.close-icon-show-product {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 2rem;
+    height: 2rem;
+    z-index: 2;
+}
+
+.close-icon-show-product:hover {
+    cursor: pointer;
+    color: var(--A);
+
+}
+
+.order-show-product {
+padding: 10px 40px;
+border-radius: 5px;
+background-color: var(--A);
+position: absolute;
+right: 0;
+bottom: 0;
+transition: padding 0.5s ease;
+color: black;
+}
+
+.order-show-product:hover {
+    padding: 15px 45px 10px 40px;
+    cursor: pointer;
+}
+
+@media(max-width : 992px){
+    .showProduct-container{
+        justify-content: center;
+        flex-direction: row-reverse;
+        width: 90%;
+    }
+
+    .image, .info-product {
+        width: 100%;
+    }
+    
+    .showProduct-price {
+        z-index: 2;
+        left: 2px;
+        top: 2px;
+        font-size: 30px;
+    }
+
+    .info-product div{
+        margin-left: 0px;
+    }
+
+    .image {
+      height: 40vh;
+    }
+}

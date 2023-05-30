@@ -1,0 +1,65 @@
+.not-found-container {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--E);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.first-div {
+  width: 70%;
+  height: 80vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.first-div span {
+  font-size: 2rem;
+}
+
+.first-div .a {
+  color: var(--F);
+}
+
+.first-div .b {
+  color: var(--A);
+}
+
+.second-div {
+  color: white;
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+}
+
+.second-div span {
+   
+    background-color: var(--A);
+    color: var(--E);
+    width: 80PX;
+    height: 3vh;
+    border-radius: var(--Radius);
+    padding-top: 10px;
+    border : 2px solid var(--A); 
+}
+
+.second-div span:hover {
+    cursor: pointer;
+    color:var(--A) ;
+    background-color: var(--E);
+}
+
+@media(max-width : 992px) {
+
+
+.first-div .a {
+  font-size: 2rem;
+}
+
+.first-div .b {
+  font-size: 2rem;
+}
+}

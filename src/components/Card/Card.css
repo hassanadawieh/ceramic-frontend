@@ -1,0 +1,62 @@
+.card-container {
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.img-product {
+  width: 100%;
+  height: 75%;
+  border-radius: var(--Radius);
+}
+
+.information-card {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-add {
+  width: 50%;
+  background-color: var(--A);
+  padding: 7px 15px;
+  border-radius: 10px;
+  transition: padding 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-add:hover {
+  cursor: pointer;
+  
+}
+.hidden-div {
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  top: 60px;
+}
+.hidden-div:hover {
+  cursor: pointer;
+}
+
+.check-include-card {
+  border-radius: 100px;
+  padding: 3px 3px;
+  color: white;
+  background-color:var(--E) ;
+}
+
+@media (max-width: 992px) {
+  .card-container {
+    width: 80%;
+    height: 400px;
+  }
+  .button-add {
+    width: 60%;
+  }
+}

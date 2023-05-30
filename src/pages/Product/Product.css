@@ -1,0 +1,132 @@
+.main-product {
+  min-height: 50vh;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.image-product {
+  width: 100%;
+  height: 35vh;
+  background-image: url("../../images/product-image.jpeg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.space-header {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.247);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.nameCategory {
+    font-weight: 900;
+    font-size: 6rem;
+    color: white;
+}
+
+.category {
+  padding: 10px 20px;
+  background-color: var(--C);
+  margin-right: 1rem;
+  border-radius: 10px;
+  color: white;
+  margin-top: 2px;
+}
+
+.category:hover {
+  cursor: pointer;
+}
+
+.section-paggination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px 30px;
+}
+.paggination {
+  min-width: 20px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.paggination div {
+    padding: 15px 20px;
+    border: 2px solid var(--E);
+    border-radius: 45%;
+    background-color: var(--E);
+    color: white;
+    margin-left: 2px;
+    font-weight: 700;
+}
+
+.paggination div:hover {
+    cursor: pointer;
+    background-color: var(--A);
+    color: var(--E);
+}
+
+.next {
+  margin-left: 2px;
+  color: var(--E);
+}
+
+.next-button {
+    width: 2rem;
+    height: 2rem;
+}
+
+.next-button:hover {
+    cursor: pointer;
+    color: var(--A);
+}
+
+.category-element{
+    text-decoration: none;
+    color: white;
+}
+
+.section-subCategory {
+  width: 100%;
+  min-height: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.section-subCategory h4 {
+   padding: 10px 20px;
+   margin-left: 10px;
+   background-color: var(--E);
+   border: 2px solid var(--E);
+   height: fit-content;
+   border-radius: var(--Radius);
+   color: white;
+   margin-left: 40px
+}
+
+.section-subCategory h4:hover {
+  cursor: pointer;
+  background-color: var(--A);
+  color: var(--E);
+
+
+}
+
+@media(max-width : 992px){
+.nameCategory {
+    font-weight: 900;
+    font-size: 70px;
+    color: white;
+}
+
+.section-subCategory h4 {
+   margin-left: 3px
+}
+}

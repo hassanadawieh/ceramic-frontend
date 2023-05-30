@@ -1,0 +1,45 @@
+.About-us-container {
+  min-height: 90vh;
+  background-color: var(--B);
+  display: flex;
+  align-items: space-around;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+.About-us-title {
+  font-size: 50px;
+}
+
+.logo-info {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-about {
+  width: 300px;
+  height: 300px;
+}
+
+.logo-info p {
+  width: 50%;
+  font-size: 20px;
+}
+
+@media (max-width: 992px) {
+  .logo-about {
+    display: none;
+  }
+  .logo-info p {
+    width: 90%;
+    font-size: 15px;
+  }
+  .About-us-title {
+  font-size: 40px;
+  margin-top: 20px;
+}
+}

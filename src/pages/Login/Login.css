@@ -1,0 +1,132 @@
+  .login-container {
+  min-height: 100vh;
+  background-image: url("../../images/login-image.jpg");
+  background-size: cover;
+  isolation: isolate;
+  position: relative;
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.432);
+  z-index: -1;
+}
+
+.div-wrap {
+  padding: 20px;
+}
+
+.main-login {
+  width: 70%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20rem;
+  flex-wrap: wrap;
+}
+
+.login-information {
+  color: var(--F);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 55%;
+}
+
+.login-information div {
+  font-weight: 900;
+  font-size: 50px;
+}
+
+.card-login {
+  border-radius: 35px;
+  background-color: var(--F);
+  height: 40vh;
+  width: 32%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-around;
+}
+
+.span-sign-up {
+  color: red;
+  transition: text-decoration 0.5s ease;
+}
+
+.span-sign-up:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.card-login .input {
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+
+.sign {
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: var(--A);
+  transition: opacity 0.5s ease;
+  border : none ;
+  font-size: 20px;
+  
+}
+
+.sign:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.ver-email p {
+  margin-left: 0px;
+  color: red;
+  width: 80%;
+}
+.our-brand {
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+@media (max-width: 992px) {
+  .main-login {
+    margin-left: 0px;
+    width: 100%;
+  }
+
+  .login-information {
+    margin-top: 20px;
+    width: 100%;
+    display: none;
+  }
+
+  .card-login {
+    width: 100%;
+    height: 60vh;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+  .ver-email p {
+    width: 100%;
+  }
+
+  .our-brand {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}
