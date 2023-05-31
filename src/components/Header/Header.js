@@ -13,14 +13,14 @@ const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [categories, setCategories] = useState([]);
   const [open, setOpen] = useState(false);
-  const [isAdmin , setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false);
   // get the useContext category name
   const { categoryName, setCategoryName } = useContext(Mycontext);
 
   // make active style to the drop down
-    let activeStyle = {
-      borderBottom: "3px solid var(--A)",
-    };
+  let activeStyle = {
+    borderBottom: "3px solid var(--A)",
+  };
 
   const handleMouseOver = () => {
     setShowDropdown(true);
@@ -62,11 +62,11 @@ const Header = () => {
   };
 
   // function to know if is admin
-const handleIsAdmin = () => {
-  if(cookies.get("admin-token")){
-    setIsAdmin(true);
-  }
-}
+  const handleIsAdmin = () => {
+    if (cookies.get("admin-token")) {
+      setIsAdmin(true);
+    }
+  };
 
   useEffect(() => {
     fetchCategories();
@@ -74,13 +74,13 @@ const handleIsAdmin = () => {
   }, []);
 
   // functions to action the drop up and down
-    const handelMenuShow = () => {
-      setOpen(true);
-    };
+  const handelMenuShow = () => {
+    setOpen(true);
+  };
 
-    const handelMenuHidden = () => {
-      setOpen(false);
-    };
+  const handelMenuHidden = () => {
+    setOpen(false);
+  };
   //  console.log(open)
   return (
     <div className="header-container">
@@ -175,6 +175,9 @@ const handleIsAdmin = () => {
         </div>
         {open ? (
           <div className="dropdown_menu">
+            <NavLink className="link" to="/login">
+              Login
+            </NavLink>
             <NavLink
               className="link"
               to="/"

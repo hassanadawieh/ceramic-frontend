@@ -31,6 +31,8 @@ const Product = () => {
 
   // function to get the subCategories
   useEffect(() => {
+      console.log("account",process.env.REACT_APP_API_URL);
+
     const fetchData = async () => {
       setIsLoading(true);
       let arrauSubCategory = [];
