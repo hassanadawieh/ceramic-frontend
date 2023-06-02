@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="create">@hassan-adawieh</div>
+      <div className="create">&copy;hassan-adawieh</div>
     </div>
   );
 };

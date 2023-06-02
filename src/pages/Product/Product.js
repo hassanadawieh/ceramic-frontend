@@ -6,6 +6,7 @@ import axios from "axios";
 import Spinner from "../../components/spinner/spinner";
 import Card from "../../components/Card/Card";
 import "./Product.css";
+import { Category } from "@mui/icons-material";
 // import Order from "../Order/Order";
 const Product = () => {
   const [totalPages, setTotalPages] = useState([]);
@@ -36,9 +37,8 @@ const Product = () => {
   // get the category name from the useContext
   const { categoryName } = useContext(MyContext);
 
-  // function to get the subCategories
-  useEffect(() => {
-    const fetchData = async () => {
+  // function to get the subCategories    
+  const fetchData = async () => {
       setIsLoading(true);
       let arrauSubCategory = [];
       await axios
@@ -57,8 +57,15 @@ const Product = () => {
         });
       setSubCategories(arrauSubCategory);
     };
+
+  useEffect(() => {
     fetchData();
   }, [categoryName]);
+  
+
+  const handleRefetchfetchData = () => {
+     fetchData();
+  }
   // function to get the products by category
   useEffect(() => {
     let storProducts = [];
@@ -144,7 +151,7 @@ const Product = () => {
   const handleSearchBar = (element) => {
       let arrayProducts = [];
     for (let i = 0; i < AllProducts.length; i++) {
-      if (AllProducts[i].name.startsWith(element)) {
+      if ( AllProducts[i].name.toLowerCase().startsWith(element.toLowerCase())) {
            arrayProducts.push(AllProducts[i]);
       }
     }
@@ -164,7 +171,9 @@ const Product = () => {
       )}
       <div className="image-product">
         <div className="space-header">
-          <div className="nameCategory">{categoryName}</div>
+          <div className="nameCategory" onClick={() => handleRefetchfetchData}>
+            {categoryName}
+          </div>
         </div>
       </div>
       <div className="section-subCategory">
@@ -182,7 +191,7 @@ const Product = () => {
           </div>
         </div>
         <div className="subCategories">
-          <h4>ALL Type</h4>
+          <h4 onClick={fetchData}>ALL Type</h4>
           {subCategories.map((element) => (
             <h4
               key={element._id}
