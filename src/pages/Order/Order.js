@@ -1,28 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
-import cookies from "js-cookie";  
+import Cookies from "js-cookie";
 import axios from "axios";
 import ShowProduct from "../../components/ShowProduct/ShowProduct";
 import Spinner from "../../components/spinner/spinner";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaRegWindowClose, FaTrashAlt, FaRegEye } from "react-icons/fa";
 import "./Order.css";
 import MyContext from "../../MyContext";
 const Order = () => {
   const [products, setProducts] = useState([]);
   const { order, setOrder } = useContext(MyContext);
-  const [showProduct , setShowProduct] = useState(false);
-  const [idProduct , setIdProduct] = useState("");
-  const [isLoged , setIsLoged] = useState(true);
-  const [isLoading , setIsLoading] = useState(false);
-  
+  const [showProduct, setShowProduct] = useState(false);
+  const [idProduct, setIdProduct] = useState("");
+  const [isLoged, setIsLoged] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+
   //function to get the id in the idProduct state
   const handleGetIdProduct = (element) => {
     setIdProduct(element);
     setShowProduct(true);
-  }
-const handleShowProductHidden = ( b ,element) => {
-  setShowProduct(false);
-}
+  };
+  const handleShowProductHidden = (b, element) => {
+    setShowProduct(false);
+  };
   // function to fetch and get the products by id
   const getProductsById = async () => {
     setIsLoading(true);
@@ -39,21 +39,22 @@ const handleShowProductHidden = ( b ,element) => {
   };
 
   // function to check if the user loged or no
-  const idUser = cookies.get("user-id");
-  console.log(idUser)
-      const handleCheckIfLogedin = () => {
-        setIsLoading(true);
-        if (order.length > 0) {
-          if (idUser) {
-            addOrder(); 
-          } else {
-            setIsLoged(false);
-          }
-        }
-      };
+  const idUser = Cookies.get("user-id");
+  console.log(idUser);
+  const handleCheckIfLogedin = () => {
+    // setIsLoading(true);
+    if (order.length > 0) {
+      if (idUser) {
+        addOrder();
+      } else {
+        // setIsLoged(false);
+      }
+    }
+  };
 
   // function to add order
   const addOrder = async () => {
+    setIsLoading(true);
     try {
       const user = idUser;
       const products = order;
@@ -63,16 +64,17 @@ const handleShowProductHidden = ( b ,element) => {
         { user, products },
         {
           headers: {
-            Authorization: `Bearer ${cookies.get("user-token")}`,
+            Authorization: `Bearer ${Cookies.get("user-token")}`,
           },
         }
       );
       console.log(response);
       if (response.status === 201) {
         window.alert("your order match successfuly");
-        setOrder([]);
+        localStorage.removeItem("myArray");
         setIsLoading(false);
       }
+      Cookies.remove("orders");
     } catch (error) {
       console.error(error.message);
     }
@@ -94,13 +96,11 @@ const handleShowProductHidden = ( b ,element) => {
   };
   useEffect(() => {
     getProductsById();
-  }, [order]);
-
-
+  }, [localStorage.getItem("myArray")]);
 
   return (
     <div className="order-container">
-      {/* {isLoading && <Spinner />} */}
+      {isLoading && <Spinner />}
       {showProduct && (
         <ShowProduct
           id={idProduct}
@@ -136,7 +136,9 @@ const handleShowProductHidden = ( b ,element) => {
         ))}
 
         <div className="confirme-div">
-          <div className="confirme" onClick={handleCheckIfLogedin}>Save</div>
+          <div className="confirme" onClick={handleCheckIfLogedin}>
+            Save
+          </div>
           {!isLoged ? (
             <NavLink className="link" to="/login" href="#hero">
               <p>please login first</p>

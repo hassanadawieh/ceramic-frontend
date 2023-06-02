@@ -3,7 +3,6 @@
   width: 100%;
   transition: background-color 0.5s ease;
   transition: box-Shadow 0.5s ease;
-  
 }
 
 .main-Header {
@@ -74,12 +73,12 @@
 
 .dropDown {
   position: absolute;
-  right: -90%;
+  /* right: -90%; */
   top: 18px;
-  width: 150%;
-  background-color: var(--B );
+  /* width: 100%; */
+  background-color: var(--E);
   color: white;
-  border-radius:10px 10px;
+  border-radius: 10px 10px;
   padding: 10px;
 }
 
@@ -108,12 +107,12 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--E);
-  top: 85px;
+  padding-top: 400px;
+  z-index: -1;
   animation: dropdown_menu_animation 0.5s ease;
+  border-radius: var(--Radius);
   /* display: none; */
-  
 }
-
 
 .dropdown_menu .link {
   padding: 20px;
@@ -144,8 +143,10 @@
   cursor: pointer;
   display: none;
 }
-@media(max-width : 992px) {
-  .list-pages, .brand-name, .header-login{
+@media (max-width: 992px) {
+  .list-pages,
+  .brand-name,
+  .header-login {
     display: none;
   }
   .login-order {
@@ -163,14 +164,8 @@
   }
 
   .dropDown {
-  position: absolute;
-  /* right: ; */
-  top: 18px;
-  width: 100%;
-  background-color: var(--B );
-  color: white;
-  border-radius:10px 10px;
-  padding: 10px;
-}
-
+    position: relative;
+    color: white;
+    padding: 10px;
+  }
 }

@@ -8,7 +8,7 @@
 
 .image-product {
   width: 100%;
-  height: 35vh;
+  height: 20vh;
   background-image: url("../../images/product-image.jpeg");
   display: flex;
   flex-direction: column;
@@ -28,6 +28,7 @@
     font-weight: 900;
     font-size: 6rem;
     color: white;
+    padding-bottom: 10px;
 }
 
 .category {
@@ -92,17 +93,48 @@
     color: white;
 }
 
-.section-subCategory {
+.section-subCategory {  
+display: flex;
+align-items: center;
+/* flex-wrap: wrap; */
+/* padding : 20px 0px; */
+min-height: 5vh;
+padding: 10px 10px;
+}
+.search-bar {
   width: 100%;
+  height : 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--Radius);
+  background-color: var(--E);
+  padding: 0px 0px 0px 20px;
+}
+
+.search-input {
+  width: 70%;
+  height: 70%;
+  border: none;
+  background-color: var(--E);
+  color: white;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.subCategories{
+  width: 60%;
   min-height: 5vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  /* border: 2px solid red; */
 }
 
-.section-subCategory h4 {
+.section-subCategory .subCategories h4 {
    padding: 10px 20px;
-   margin-left: 10px;
    background-color: var(--E);
    border: 2px solid var(--E);
    height: fit-content;
@@ -115,9 +147,32 @@
   cursor: pointer;
   background-color: var(--A);
   color: var(--E);
-
-
 }
+
+.search-bar-container {
+  width: 30%;
+  padding: 10px;
+}
+
+.div-search {
+  width: 15%;
+  height: 100%;
+  background-color:var(--A) ;
+  border-radius: 0px 8px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div-search:hover {
+  cursor: pointer;
+  background-color: rgb(244, 214, 94);
+}
+
+.search-icon {
+  width: 60%;
+  height: 6 0%;
+}
+
 
 @media(max-width : 992px){
 .nameCategory {
@@ -126,7 +181,29 @@
     color: white;
 }
 
-.section-subCategory h4 {
-   margin-left: 3px
+.section-subCategory .subCategories h4 {
+   margin-left: 2px;
+
 }
+
+.search-bar {
+  width: 90%;
+}
+.search-bar-container {
+  width: 100%;
+  padding: 10px;
+}
+.subCategories {
+  width: 100%;
+  padding: 10px;
+}
+
+.section-subCategory {
+  /* width: 100%; */
+  padding: 10px 0px 10px 0px;
+  flex-direction: column;
+
+  padding-left: 10px;
+}
+
 }

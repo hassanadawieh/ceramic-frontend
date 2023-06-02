@@ -80,6 +80,7 @@ const Header = () => {
 
   const handelMenuHidden = () => {
     setOpen(false);
+    setShowDropdown(false);
   };
   //  console.log(open)
   return (
@@ -216,7 +217,8 @@ const Header = () => {
                     <NavLink
                       to="/products"
                       className="category-element"
-                      onClick={() => handleStoreCategoryName("All Categories")}
+                      onClick={() => {handleStoreCategoryName("All Categories"); handelMenuHidden();}}
+
                     >
                       All Categories
                     </NavLink>
@@ -226,7 +228,7 @@ const Header = () => {
                       <NavLink
                         to="/products"
                         className="category-element"
-                        onClick={() => handleStoreCategoryName(element.name)}
+                        onClick={() => {handleStoreCategoryName(element.name); handelMenuHidden();}}
                         key={element._id}
                       >
                         {element.name}

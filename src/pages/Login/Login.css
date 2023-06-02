@@ -19,6 +19,7 @@
 
 .div-wrap {
   padding: 20px;
+  
 }
 
 .main-login {
@@ -29,6 +30,8 @@
   justify-content: space-between;
   margin-left: 20rem;
   flex-wrap: wrap;
+  /* position: fixed; */
+  z-index: -89;
 }
 
 .login-information {
@@ -48,7 +51,7 @@
 .card-login {
   border-radius: 35px;
   background-color: var(--F);
-  height: 40vh;
+  height: 400px;
   width: 32%;
   padding: 20px;
   display: flex;

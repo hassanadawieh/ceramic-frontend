@@ -8,7 +8,7 @@ export const DataProvider = ({ children }) => {
 
   
   
-  
+
   
   
 
@@ -16,18 +16,39 @@ export const DataProvider = ({ children }) => {
    // function to add product to order
    const addOrder = (element) => {
     const existingData = localStorage.getItem("myArray");
-    console.log(existingData , "existingData");
+    // console.log(existingData , "existingData");
     const dataArray = existingData ? JSON.parse(existingData) : [];
-    console.log(dataArray, "dataAsetOrderrray");
+    // console.log(dataArray, "dataAsetOrderrray");
     dataArray.push(element);
     const updatedData = JSON.stringify(dataArray);
-    console.log(updatedData , "updateData")
+    // console.log(updatedData , "updateData")
     localStorage.setItem("myArray", updatedData);
-    console.log(JSON.parse(localStorage.getItem("myArray")))    
+    // console.log(JSON.parse(localStorage.getItem("myArray")))    
    }
+
+   // function to remove product from order
+const removeOrder = (element) => {
+  const existingData = localStorage.getItem("myArray");
+  const dataArray = existingData ? JSON.parse(existingData) : [];
+
+  // Find the index of the element to remove
+  const indexToRemove = dataArray.indexOf(element);
+
+  if (indexToRemove > -1) {
+    // Remove the element at the found index
+    dataArray.splice(indexToRemove, 1);
+
+    // Update the local storage with the updated array
+    const updatedData = JSON.stringify(dataArray);
+    localStorage.setItem("myArray", updatedData);
+    console.log(JSON.parse(localStorage.getItem("myArray")));
+  }
+};
+
+
   return (
     <MyContext.Provider
-      value={{ categoryName, setCategoryName, order, setOrder, addOrder }}
+      value={{ categoryName, setCategoryName, order, setOrder, addOrder, removeOrder }}
     >
       {children}
     </MyContext.Provider>

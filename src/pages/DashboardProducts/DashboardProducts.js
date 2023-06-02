@@ -99,7 +99,7 @@ function DashboardProducts() {
       renderCell: (params) => (
         <>
           <IconButton
-            color="secondary"
+            color="B"
             aria-label="delete"
             onClick={() => deleteProduct(params.id)}
           >
@@ -113,7 +113,7 @@ function DashboardProducts() {
               setOpenPopup(true);
               setEditId(params.id);
             }}
-            secondary-color
+           
           >
             <EditIcon style={{ color: "var(--A)" }} />
           </IconButton>
@@ -154,17 +154,15 @@ function DashboardProducts() {
     setProductEditData({ ...productEditData, [event.target.name]: value });
   };
 
- const handleAddImageChange = (event) => {
-  console.log("test1")
-   const file = event.target.files[0];
-   setSelectedImage(file);
- };
+   const handleAddImageChange = (e) => {
+    console.log(e.targate.files[0]);
+     setProductAddData({ ...productAddData, image: e.target.files[0] });
+   };
 
-const handleEditImageChange = (event) => {
-  console.log("test2");
-  const file = event.target.files[0];
-  setSelectedImage(file);
-};
+   const handleEditImageChange = (e) => {
+    console.log(e.target.files[0])
+     setProductEditData({ ...productEditData, image: e.target.files[0] });
+   };
 
   const addProduct = async (e) => {
     e.preventDefault();
@@ -417,11 +415,7 @@ const handleEditImageChange = (event) => {
               type="file"
               name="image"
               id="file-input"
-              onChange={
-                isEdit
-                  ? (e) => {setUploadImage(e.target.files[0])}
-                  : (e) => {setUploadImage(e.target.files[0])}
-              }
+              onChange={isEdit ? handleEditImageChange : handleAddImageChange}
               // value={isEdit ? productEditData.image : productAddData.image}
               className="file-input__input"
             />
