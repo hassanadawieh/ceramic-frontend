@@ -4,7 +4,7 @@ import axios from "axios";
 import Brand from "../../images/brand.svg";
 import Logo from "../../images/logo.svg";
 import { NavLink } from "react-router-dom";
-import { FaAlignJustify, FaAlignCenter } from "react-icons/fa";
+import { FaAlignJustify, FaAlignCenter, FaUserAlt } from "react-icons/fa";
 import cookies from "js-cookie";
 import "./Header.css";
 const Header = () => {
@@ -14,6 +14,7 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
   const [open, setOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isUser , setIsUser] = useState(false);
   // get the useContext category name
   const { categoryName, setCategoryName } = useContext(Mycontext);
 
@@ -65,6 +66,8 @@ const Header = () => {
   const handleIsAdmin = () => {
     if (cookies.get("admin-token")) {
       setIsAdmin(true);
+    }else if(cookies.get("user-token")){
+        setIsUser(true)
     }
   };
 
@@ -103,10 +106,10 @@ const Header = () => {
           </NavLink>
           <NavLink
             className="link"
-            to="/contact"
+            to="/documentation"
             style={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Contact
+            Documentation
           </NavLink>
           <NavLink
             className="link"
@@ -155,19 +158,26 @@ const Header = () => {
               </div>
             )}
           </div>
-          {isAdmin && (
+        </div>
+        <div className="login-order">
+          {isAdmin ? (
             <NavLink to="/dashboard" className="link">
               Dashboard
             </NavLink>
+          ) : (
+            <NavLink className="link header-login" to="/login">
+              Login
+            </NavLink>
           )}
-        </div>
-        <div className="login-order">
-          <NavLink className="link header-login" to="/login">
-            Login
-          </NavLink>
           <NavLink to="/order" className="order-button">
             Your Favorite
           </NavLink>
+          {isUser ? (
+            <NavLink to="/your-profile" className="link-to-user-profile">
+              <FaUserAlt className="user-profile-icon" />
+            </NavLink>
+          ) : null}
+
           {!open ? (
             <FaAlignJustify className="toggle_btn" onClick={handelMenuShow} />
           ) : (
@@ -176,9 +186,16 @@ const Header = () => {
         </div>
         {open ? (
           <div className="dropdown_menu">
-            <NavLink className="link" to="/login">
-              Login
-            </NavLink>
+            {isAdmin ? (
+              <NavLink to="/dashboard" className="link">
+                Dashboard
+              </NavLink>
+            ) : (
+              <NavLink className="link" to="/login">
+                Login
+              </NavLink>
+            )}
+
             <NavLink
               className="link"
               to="/"
@@ -189,7 +206,7 @@ const Header = () => {
             </NavLink>
             <NavLink
               className="link"
-              to="/contact"
+              to="/documentation"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
               onClick={handelMenuHidden}
             >
@@ -217,8 +234,10 @@ const Header = () => {
                     <NavLink
                       to="/products"
                       className="category-element"
-                      onClick={() => {handleStoreCategoryName("All Categories"); handelMenuHidden();}}
-
+                      onClick={() => {
+                        handleStoreCategoryName("All Categories");
+                        handelMenuHidden();
+                      }}
                     >
                       All Categories
                     </NavLink>
@@ -228,7 +247,10 @@ const Header = () => {
                       <NavLink
                         to="/products"
                         className="category-element"
-                        onClick={() => {handleStoreCategoryName(element.name); handelMenuHidden();}}
+                        onClick={() => {
+                          handleStoreCategoryName(element.name);
+                          handelMenuHidden();
+                        }}
                         key={element._id}
                       >
                         {element.name}

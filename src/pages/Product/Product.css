@@ -163,6 +163,10 @@ padding: 10px 10px;
   align-items: center;
   justify-content: center;
 }
+.div-search:hover {
+  cursor: pointer;
+  background-color: rgb(244, 214, 94);
+}
 
 .search-icon {
   width: 60%;

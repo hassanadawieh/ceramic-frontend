@@ -1,0 +1,127 @@
+.profile-container {
+  min-height: 100vh;
+  background-color: var(--E);
+}
+
+.hero-section-profile {
+  height: 10vh;
+}
+
+.profile-content {
+  min-height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 200px;
+}
+
+.info-profile {
+  height: 400px;
+  width: 300px;
+  border-radius: var(--Radius);
+  background-color: var(--F);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hero-favorite-data {
+  height: 60px;
+  background-color: var(--A);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
+}
+.image-profile {
+  width: 60%;
+  height: 200px;
+  border-radius: 360%;
+  background-color: var(--A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-profile strong {
+  font-size: 100px;
+}
+
+.number-favorite {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.number-favorite span {
+  padding: 7px 15px;
+  background-color: var(--E);
+  border: 2px solid var(--E);
+  border-radius: var(--Radius);
+  margin-left: 10px;
+  margin-top: 5px;
+  color: var(--A);
+}
+
+.number-favorite span:hover {
+  cursor: pointer;
+  color: var(--E);
+  background-color: var(--A);
+}
+
+.favorite-data {
+  height: 60vh;
+  width: 40%;
+  border-radius: var(--Radius);
+  background-color: var(--F);
+}
+
+.favorite-products {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+}
+
+.card-product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+@media (max-width: 992px) {
+
+  .info-profile {
+    height: 200px;
+    width: 90%;
+    border-radius: var(--Radius);
+    background-color: var(--F);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .profile-content {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 10px;
+    background-color: var(--F);
+  }
+
+  .favorite-data {
+  min-height: 60vh;
+  width: 90%;
+  border-radius: var(--Radius);
+  background-color: var(--F);
+  margin-top: 50px;
+}
+}

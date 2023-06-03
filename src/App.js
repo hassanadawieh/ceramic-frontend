@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Header from "../src/components/Header/Header";
 import Footer from "../src/components/Footer/Footer";
 import Home from "../src/pages/Home/Home";
-import ContactUs from "../src/pages/ContactUs/ContactUs";
+import Documentation from "../src/pages/Dcumentation/Documentation";
 import NotFound from "../src/pages/NotFound/NotFound";
 import Order from "../src/pages/Order/Order";
 import Product from "../src/pages/Product/Product";
@@ -17,6 +17,7 @@ import DashboardCategories from "./pages/DashboardCategories/DashboardCategories
 import PrivateRoutes from "./utils/privateRoutes";
 import DashboardPage from "./pages/Dashboard/Dashboard.js";
 import Login from "../src/pages/Login/Login";
+import Profile from "../src/pages/Profile/Profile"
 import  { DataProvider} from "./MyContext"
 import './App.css';
 
@@ -45,10 +46,11 @@ const shouldRenderHeader =  isNotFoundPath || isUnauthorizedPath || isDashboardP
             <Route exact path="/" element={<Home />} />
             <Route path="order" element={<Order />} />
             <Route path="products" element={<Product />} />
-            <Route path="contact" element={<ContactUs />} />
+            <Route path="documentation" element={<Documentation />} />
             <Route path="*" element={<NotFound />} />
             <Route path="unauthorized" element={<Unauthorized />} />
             <Route path="login" element={<Login />} />
+            <Route path="your-profile" element={<Profile />}/>
           </Route>
           <Route path="/" element={<PrivateRoutes />}>
             <Route path="/" element={<DashboardPage />}>
