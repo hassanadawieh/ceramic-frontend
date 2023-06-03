@@ -21,6 +21,7 @@ const Product = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [filterSearch , setFilterSearch] = useState([]);
   const { order, setOrder } = useContext(MyContext);
+  const [reFetch , setReFetch] = useState(true)
 
   // function to get the idproduct show
 
@@ -63,9 +64,6 @@ const Product = () => {
   }, [categoryName]);
   
 
-  const handleRefetchfetchData = () => {
-     fetchData();
-  }
   // function to get the products by category
   useEffect(() => {
     let storProducts = [];
@@ -81,7 +79,7 @@ const Product = () => {
       setShowPagginations(true);
       fetchAllProducts();
     }
-  }, [categoryName, AllProducts, page]);
+  }, [categoryName, AllProducts, page, reFetch]);
 
   //function to get the all products
   useEffect(() => {
@@ -159,6 +157,15 @@ const Product = () => {
   }
 
 
+  // function to refetch data from All Type bottom
+  const handleReFetch = () => {
+    if(reFetch){
+      setReFetch(false);
+    }else{
+      setReFetch(true);
+    }
+  }
+
   useEffect(() => {
     fetchAllProducts();
   }, [page, order, filterSearch]);
@@ -171,7 +178,7 @@ const Product = () => {
       )}
       <div className="image-product">
         <div className="space-header">
-          <div className="nameCategory" onClick={() => handleRefetchfetchData}>
+          <div className="nameCategory">
             {categoryName}
           </div>
         </div>
@@ -191,7 +198,7 @@ const Product = () => {
           </div>
         </div>
         <div className="subCategories">
-          <h4 onClick={fetchData}>ALL Type</h4>
+          <h4 onClick={() => handleReFetch()}>ALL Type</h4>
           {subCategories.map((element) => (
             <h4
               key={element._id}

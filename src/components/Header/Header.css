@@ -56,9 +56,8 @@
 }
 
 .order-button:hover {
-  cursor: pointer;
-  padding: 12px 17px;
-  /* color: white; */
+background-color: var(--E);
+color: var(--A);
 }
 
 .logo {

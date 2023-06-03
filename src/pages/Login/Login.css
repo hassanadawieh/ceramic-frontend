@@ -24,14 +24,14 @@
 
 .main-login {
   width: 70%;
-  height: 400px;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-left: 20rem;
   flex-wrap: wrap;
   /* position: fixed; */
-  /* z-index: -89; */
+  z-index: -89;
 }
 
 .login-information {
@@ -119,7 +119,7 @@
 
   .card-login {
     width: 100%;
-    height: 400px;
+    height: 60vh;
     margin-top: 20px;
     border-radius: 10px;
   }

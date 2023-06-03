@@ -26,7 +26,7 @@
 
 .nameCategory {
     font-weight: 900;
-    font-size: 6rem;
+    font-size: clamp(2.5rem, 2.5vw, 20rem); 
     color: white;
     padding-bottom: 10px;
 }
@@ -163,10 +163,6 @@ padding: 10px 10px;
   align-items: center;
   justify-content: center;
 }
-.div-search:hover {
-  cursor: pointer;
-  background-color: rgb(244, 214, 94);
-}
 
 .search-icon {
   width: 60%;
@@ -175,11 +171,11 @@ padding: 10px 10px;
 
 
 @media(max-width : 992px){
-.nameCategory {
+/* .nameCategory {
     font-weight: 900;
     font-size: 70px;
     color: white;
-}
+} */
 
 .section-subCategory .subCategories h4 {
    margin-left: 2px;

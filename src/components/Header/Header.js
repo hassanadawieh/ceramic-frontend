@@ -121,7 +121,7 @@ const Header = () => {
             className="link categorylinks"
             to="/"
           >
-            Category{" "}
+            Categories{" "}
             {showDropdown && (
               <div className="dropDown">
                 <h4>
@@ -209,7 +209,7 @@ const Header = () => {
               className="link categorylinks"
               to="/"
             >
-              Category{" "}
+              Categories{" "}
               {showDropdown && (
                 <div className="dropDown">
                   <h4>
