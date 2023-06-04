@@ -40,7 +40,6 @@ const Order = () => {
 
   // function to check if the user loged or no
   const idUser = Cookies.get("user-id");
-  console.log(idUser);
   const handleCheckIfLogedin = () => {
     // setIsLoading(true);
     if (order.length > 0) {
@@ -78,6 +77,8 @@ const Order = () => {
     } catch (error) {
       console.error(error.message);
     }
+    setOrder([]); 
+    getProductsById();
   };
 
   // function to remove the product that I don't need from the order
@@ -110,7 +111,7 @@ const Order = () => {
       )}
       <div className="list-order">
         {products.map((element) => (
-          <div className="cards" key={element._id}>
+          <div className="cards" key={element._id} >
             <div className="card-order">
               <img
                 className="image-order"

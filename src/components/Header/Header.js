@@ -14,7 +14,7 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
   const [open, setOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isUser , setIsUser] = useState(false);
+  const [isUser, setIsUser] = useState(false);
   // get the useContext category name
   const { categoryName, setCategoryName } = useContext(Mycontext);
 
@@ -66,8 +66,8 @@ const Header = () => {
   const handleIsAdmin = () => {
     if (cookies.get("admin-token")) {
       setIsAdmin(true);
-    }else if(cookies.get("user-token")){
-        setIsUser(true)
+    } else if (cookies.get("user-token")) {
+      setIsUser(true);
     }
   };
 
@@ -80,6 +80,12 @@ const Header = () => {
   const handelMenuShow = () => {
     setOpen(true);
   };
+  // function logout to remove the token and the id user
+  const handleLogout = () => {
+    cookies.remove("user-token");
+    cookies.remove("user-id")
+    window.location.reload();
+  }
 
   const handelMenuHidden = () => {
     setOpen(false);
@@ -160,15 +166,26 @@ const Header = () => {
           </div>
         </div>
         <div className="login-order">
-          {isAdmin ? (
-            <NavLink to="/dashboard" className="link">
-              Dashboard
-            </NavLink>
-          ) : (
+          {!isAdmin && !isUser && (
             <NavLink className="link header-login" to="/login">
               Login
             </NavLink>
           )}
+          {isAdmin && (
+            <NavLink to="/dashboard " className="link header-dashboard">
+              Dashboard
+            </NavLink>
+          )}
+          {isUser && (
+            <NavLink
+              to="/"
+              className="link header-logout"
+              onClick={handleLogout}
+            >
+              Logout
+            </NavLink>
+          )}
+
           <NavLink to="/order" className="order-button">
             Your Favorite
           </NavLink>
@@ -186,13 +203,23 @@ const Header = () => {
         </div>
         {open ? (
           <div className="dropdown_menu">
-            {isAdmin ? (
-              <NavLink to="/dashboard" className="link">
+            {!isAdmin && !isUser && (
+              <NavLink className="link " to="/login">
+                Login
+              </NavLink>
+            )}
+            {isAdmin && (
+              <NavLink to="/dashboard " className="link header-dashboard">
                 Dashboard
               </NavLink>
-            ) : (
-              <NavLink className="link" to="/login">
-                Login
+            )}
+            {isUser && (
+              <NavLink
+                to="/"
+                className="link"
+                onClick={handleLogout}
+              >
+                Logout
               </NavLink>
             )}
 
@@ -260,51 +287,6 @@ const Header = () => {
                 </div>
               )}
             </div>
-            {/* <li>
-                <NavLink
-                  className="link"
-                  to="/"
-                  href="#hero"
-                  onClick={handelMenuHidden}
-                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                >
-                  Home
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  className="link"
-                  to="/products"
-                  href="#hero"
-                  onClick={handelMenuHidden}
-                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                >
-                  Products
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="link"
-                  to="/training"
-                  href="#hero"
-                  onClick={handelMenuHidden}
-                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                >
-                  Training
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="link"
-                  to="/contact"
-                  href="#hero"
-                  onClick={handelMenuHidden}
-                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                >
-                  Contact
-                </NavLink>
-              </li> */}
           </div>
         ) : null}
       </div>

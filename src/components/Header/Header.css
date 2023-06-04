@@ -182,4 +182,12 @@ color: var(--A);
     position: absolute;
     left: -40px;
   }
+
+  .header-dashboard {
+    display: none;
+  }
+
+  .header-logout {
+    display: none;
+  }
 }

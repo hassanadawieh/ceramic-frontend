@@ -72,6 +72,7 @@ const Sidebar = () => {
             className="sidebar-logout spacing hover"
             onClick={() => {
               Cookies.remove("admin-token");
+              Cookies.remove("admin-id");
               localStorage.removeItem("admin-full-name");
               localStorage.removeItem("admin-email");
             }}
