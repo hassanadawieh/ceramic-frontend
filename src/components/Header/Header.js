@@ -237,7 +237,7 @@ const Header = () => {
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
               onClick={handelMenuHidden}
             >
-              Contact
+              Documentation
             </NavLink>
             <NavLink
               className="link"

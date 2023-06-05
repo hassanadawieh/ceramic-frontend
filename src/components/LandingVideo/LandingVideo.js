@@ -16,7 +16,7 @@ const LandingVideo = () => {
         </p></div>
       
         <NavLink to="/documentation" className='home-button'>
-         Look the Documentation 
+         How to use
         </NavLink>
       </div>
       <img className="image-home" src={HomeImage} alt="image-home-page"></img>
