@@ -33,6 +33,7 @@ const ShowProduct = (props) => {
         <div className="showProduct-price">${dataProduct.price}</div>
         <img
           className="image"
+          onClick={() => props.remove("", false)}
           src={`${process.env.REACT_APP_API_URL}/${dataProduct.image}`}
           alt="product-img"
         />

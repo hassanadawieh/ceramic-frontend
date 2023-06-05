@@ -202,7 +202,7 @@ const Header = () => {
           )}
         </div>
         {open ? (
-          <div className="dropdown_menu">
+          <div className="dropdown_menu" >
             {!isAdmin && !isUser && (
               <NavLink className="link " to="/login">
                 Login
@@ -255,8 +255,8 @@ const Header = () => {
             >
               Categories{" "}
               {showDropdown && (
-                <div className="dropDown">
-                  <h4>
+                <ul className="dropDown">
+                  <li>
                     {" "}
                     <NavLink
                       to="/products"
@@ -266,11 +266,11 @@ const Header = () => {
                         handelMenuHidden();
                       }}
                     >
-                      All Categories
+                      <i>All Categories</i>
                     </NavLink>
-                  </h4>
+                  </li>
                   {categories.map((element) => (
-                    <h4 key={element._id}>
+                    <li><i key={element._id}>
                       <NavLink
                         to="/products"
                         className="category-element"
@@ -282,9 +282,9 @@ const Header = () => {
                       >
                         {element.name}
                       </NavLink>
-                    </h4>
+                    </i></li>
                   ))}
-                </div>
+                </ul>
               )}
             </div>
           </div>

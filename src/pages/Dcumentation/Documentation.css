@@ -8,7 +8,7 @@
 }
 
 .documentation-container {
-  min-height: 85vh;
+ min-height: 85vh;
 }
 
 .section {
@@ -16,7 +16,6 @@
   justify-content: space-between;
   padding-left: 40px;
   padding-right: 40px;
-  min-height: 70vh;
   padding-top: 20px;
   color: white;
 }

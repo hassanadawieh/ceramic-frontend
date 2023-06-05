@@ -11,7 +11,7 @@ const ContactUs = () => {
       <div className="documentation-container">
         <section className="section">
           <div className="description-documentation">
-            <h2>Categories and types</h2>
+            <h2>Categories And Types</h2>
             <p>
               On the products page, you will find a list of categories
               available. These categories allow you to filter and display
@@ -27,7 +27,7 @@ const ContactUs = () => {
         </section>
         <section className="section">
           <div className="description-documentation">
-            <h2>choose The Favorite</h2>
+            <h2>Choose The Favorite</h2>
             <p>
               Our website offers a feature that allows you to select and save
               your favorite products. By clicking on the "Add to Your Favorites"
@@ -47,7 +47,7 @@ const ContactUs = () => {
         </section>
         <section className="section">
           <div className="description-documentation">
-            <h2>Personal Information</h2>
+            <h2>Favorite History</h2>
             <p>
               Once you are logged into your account, you can access your profile
               page by clicking on the icon depicted in the picture. On your

@@ -32,6 +32,7 @@
   color: white;
   text-decoration: none;
   transition: color 0.2s ease;
+  z-index: 1;
 }
 
 .list-pages .first {
@@ -93,6 +94,10 @@ color: var(--A);
 
 .categorylinks {
   position: relative;
+}
+
+.category-element{
+  text-decoration: block;
 }
 .category-element:hover {
   color: var(--A);
@@ -177,6 +182,12 @@ color: var(--A);
     position: relative;
     color: white;
     padding: 10px;
+    padding-left: 13rem;
+    margin-top: -20px;
+  }
+
+  .dropDown li {
+    padding-top: 15px;
   }
   .link-to-user-profile{
     position: absolute;

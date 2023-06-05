@@ -133,7 +133,7 @@ getFavoriteProduct()
         </div>
         <div className="favorite-data">
           <div className="hero-favorite-data">
-            <strong>your Favorites</strong>
+            <strong>Favorites History</strong>
             <div>{effectNumber}</div>
           </div>
           <div className="number-favorite">
@@ -146,7 +146,7 @@ getFavoriteProduct()
                     handleStoreProductsData(element);
                   }}
                 >
-                  choise {element}
+                  List {element}
                 </span>
               ))
             ) : (
