@@ -116,7 +116,7 @@ color: var(--A);
   flex-direction: column;
   align-items: center;
   background-color: var(--E);
-  padding-top: 400px;
+  padding-top: 500px;
   z-index: -1;
   animation: dropdown_menu_animation 0.5s ease;
   border-radius: var(--Radius);
