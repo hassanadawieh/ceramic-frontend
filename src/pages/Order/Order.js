@@ -14,6 +14,7 @@ const Order = () => {
   const [idProduct, setIdProduct] = useState("");
   const [isLoged, setIsLoged] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [changeOrder , setChangeOrder] = useState(false)
 
   //function to get the id in the idProduct state
   const handleGetIdProduct = (element) => {
@@ -36,6 +37,7 @@ const Order = () => {
     }
     setIsLoading(false);
     setProducts(arrayProducts);
+
   };
 
   // function to check if the user loged or no
@@ -77,8 +79,8 @@ const Order = () => {
     } catch (error) {
       console.error(error.message);
     }
-    setOrder([]); 
     getProductsById();
+    window.location.reload();
   };
 
   // function to remove the product that I don't need from the order
@@ -98,6 +100,11 @@ const Order = () => {
   useEffect(() => {
     getProductsById();
   }, [localStorage.getItem("myArray")]);
+
+useEffect(() => {
+  setOrder(JSON.parse(localStorage.getItem("myArray")));
+}, [changeOrder]);
+
 
   return (
     <div className="order-container">

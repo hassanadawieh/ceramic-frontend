@@ -41,7 +41,6 @@ const removeOrder = (element) => {
     // Update the local storage with the updated array
     const updatedData = JSON.stringify(dataArray);
     localStorage.setItem("myArray", updatedData);
-    console.log(JSON.parse(localStorage.getItem("myArray")));
   }
 };
 

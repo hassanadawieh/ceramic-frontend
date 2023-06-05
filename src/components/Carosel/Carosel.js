@@ -27,8 +27,10 @@ import "./Carosel.css";
      dataFetch();
     },[]);
 
-  return (
+  return (<>
+  <h2>THE BEST</h2>
     <div className="main-slider">
+      
       {isLoading && <Spinner />}
       <div className="slider">
         {allProducts.map((element, index) => (
@@ -41,8 +43,10 @@ import "./Carosel.css";
           </span>
         ))}
       </div>
-      <NavLink to="/products" className='show-products'>View now</NavLink>
-    </div>
+      <NavLink to="/products" className="show-products">
+        View now
+      </NavLink>
+    </div></>
   );
 }
 
