@@ -236,6 +236,7 @@ useEffect(() => {
             <input
               className="input"
               placeholder="Email"
+              type="email"
               required
               onChange={(event) => {
                 setUserLogin({ ...userLogin, email: event.target.value });
@@ -244,6 +245,7 @@ useEffect(() => {
             ></input>
             <input
               className="input"
+              type="password"
               placeholder="Password"
               required
               onChange={(event) => {
