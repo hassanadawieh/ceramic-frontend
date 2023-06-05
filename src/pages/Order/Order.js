@@ -12,7 +12,7 @@ const Order = () => {
   const { order, setOrder } = useContext(MyContext);
   const [showProduct, setShowProduct] = useState(false);
   const [idProduct, setIdProduct] = useState("");
-  const [isLoged, setIsLoged] = useState(true);
+  const [isLoged, setIsLoged] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [changeOrder , setChangeOrder] = useState(false)
 
@@ -28,12 +28,14 @@ const Order = () => {
   const getProductsById = async () => {
     setIsLoading(true);
     const arrayProducts = [];
-    for (let i = 0; i < order.length; i++) {
-      await axios
-        .get(`${process.env.REACT_APP_API_URL}/api/product/${order[i]}`)
-        .then((response) => {
-          arrayProducts.push(response.data);
-        });
+    if(order){
+      for (let i = 0; i < order.length; i++) {
+        await axios
+          .get(`${process.env.REACT_APP_API_URL}/api/product/${order[i]}`)
+          .then((response) => {
+            arrayProducts.push(response.data);
+          });
+      }
     }
     setIsLoading(false);
     setProducts(arrayProducts);
@@ -44,12 +46,12 @@ const Order = () => {
   const idUser = Cookies.get("user-id");
   const handleCheckIfLogedin = () => {
     // setIsLoading(true);
-    if (order.length > 0) {
+
       if (idUser) {
         addOrder();
+        setIsLoged(true)
       } else {
-        // setIsLoged(false);
-      }
+        setIsLoged(false);
     }
   };
 
@@ -105,7 +107,11 @@ useEffect(() => {
   setOrder(JSON.parse(localStorage.getItem("myArray")));
 }, [changeOrder]);
 
-
+useEffect(() => {
+ if(Cookies.get("user-id")){
+  setIsLoged(true);
+ } 
+})
   return (
     <div className="order-container">
       {isLoading && <Spinner />}
@@ -118,7 +124,7 @@ useEffect(() => {
       )}
       <div className="list-order">
         {products.map((element) => (
-          <div className="cards" key={element._id} >
+          <div className="cards" key={element._id}>
             <div className="card-order">
               <img
                 className="image-order"
@@ -144,15 +150,14 @@ useEffect(() => {
         ))}
 
         <div className="confirme-div">
-          <div className="confirme" onClick={handleCheckIfLogedin}>
-            Save
-          </div>
           {!isLoged ? (
-            <NavLink className="link" to="/login" href="#hero">
-              <p>please login first</p>
+            <NavLink className="confirme" to="/login" href="#hero">
+              <p>login first</p>
             </NavLink>
           ) : (
-            ""
+            <div className="confirme" onClick={handleCheckIfLogedin}>
+              Save
+            </div>
           )}
         </div>
       </div>

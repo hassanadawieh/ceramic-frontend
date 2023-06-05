@@ -209,7 +209,7 @@ const Header = () => {
               </NavLink>
             )}
             {isAdmin && (
-              <NavLink to="/dashboard " className="link header-dashboard">
+              <NavLink to="/dashboard " className="link ">
                 Dashboard
               </NavLink>
             )}
