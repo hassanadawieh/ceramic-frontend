@@ -52,17 +52,18 @@
 }
 
 .confirme {
-  padding: 10px 15px;
+  padding: 5px 10px;
   background-color: var(--A);
   width: 100px;
   border-radius: var(--Radius);
   color: var(--E);
   transition: padding 0.5s ease;
+  text-decoration: none;
 }
 
 .confirme:hover {
   cursor: pointer;
-  padding: 13px 18px;
+  padding: 7px 12px;
 }
 
 .image-order {
